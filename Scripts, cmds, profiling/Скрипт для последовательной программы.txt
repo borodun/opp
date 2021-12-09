@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#PBS -l walltime=00:01:00
+#PBS -l select=1:ncpus=1:mem=10000m,place=scatter:exclhost
+#PBS -m n
+
+cd $PBS_O_WORKDIR
+echo 'File $PBS_NODEFILE:'
+cat  $PBS_NODEFILE
+
+./SLAE_MPI_CON.o 23000 CON-1cpu

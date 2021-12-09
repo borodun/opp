@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#PBS -l walltime=00:01:00
+#PBS -l select=2:ncpus=6:mpiprocs=6:mem=10000m,place=scatter:exclhost
+#PBS -m n
+
+cd $PBS_O_WORKDIR
+
+MPI_NP=$(wc -l $PBS_NODEFILE | awk '{ print $1 }')
+echo "Number of MPI process: $MPI_NP"
+
+echo 'File $PBS_NODEFILE:'
+cat  $PBS_NODEFILE
+
+mpirun -hostfile $PBS_NODEFILE -np $MPI_NP ./SLAE_MPI_1.o 23000 2x6cpu

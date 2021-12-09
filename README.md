@@ -1,2 +1,3 @@
-# parallel-programming
-Учебный курс "Основы параллельного программирования" - ОПП
+# ОПП
+
+[Лабы](https://ssd.sscc.ru/ru/chair/nsu/parallel-programming)

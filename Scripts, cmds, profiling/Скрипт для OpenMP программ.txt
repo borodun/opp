@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#PBS -l walltime=00:01:00
+#PBS -l select=1:ncpus=12:ompthreads=12:mem=20000m,place=scatter:exclhost
+#PBS -m n
+
+cd $PBS_O_WORKDIR
+echo "OMP_NUM_THREADS = $OMP_NUM_THREADS"
+
+./SLAE_OpenMP_1_SSE.o 40000 12 1-12 1
